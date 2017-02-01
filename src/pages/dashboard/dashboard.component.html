@@ -1,0 +1,9 @@
+<section class="dashboard">
+	<h3 class="dashboard-heading">Dashboard</h3>
+	<div class="dashboard-list">
+		<div *ngFor="let item of list" (click)="navigateToDetail(item)" class="dashboard-item">
+			<div class="dashboard-info dashboard-name">{{item.name}}</div>
+			<div class="dashboard-info dashboard-period">{{item.period}}</div>
+		</div>
+	</div>
+</section>

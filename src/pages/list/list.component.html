@@ -1,0 +1,25 @@
+<section class="list">
+	<div class="list-row">
+		<h3>List</h3>
+	</div>
+	<div class="list-column">
+		<ul class="list-items table">
+			<li class="list-item row" *ngFor="let item of list" (click)="onSelect(item)" [class.selected]="item === selectedItem">
+				<span class="list-item-id cell">{{item.id}}</span>
+				<span class="list-item-name cell">{{item.name}}</span>
+				<span class="list-item-period cell">{{item.period}}</span>
+				<button class="button cell" (click)="deleteItem(item, $event)">Delete</button>
+			</li>
+		</ul>
+	</div>
+	<div class="list-column">
+		<button class="button" (click)="addItem()">Add New Item</button>
+		<div class="list-detail" *ngIf="addingItem">
+			<ex-detail (close)="close($event)"></ex-detail>
+		</div>
+		<div class="list-item-selected" *ngIf="selectedItem">
+			<button class="button" (click)="navigateToDetail()">View Details {{selectedItem.name}}</button>
+		</div>
+		<div class="list-error" *ngIf="error">{{error}}</div>
+	</div>
+</section>

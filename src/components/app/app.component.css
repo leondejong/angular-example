@@ -1,0 +1,49 @@
+main {
+	position: relative;
+	display: flex;
+	flex-flow: row wrap;
+	flex: 1 100%;
+	width: 80%;
+	margin: 2rem auto 1rem auto;
+	border-right: 1px solid var(--color-accent);
+	border-left: 1px solid var(--color-accent);
+	border-radius: 5px;
+}
+header, footer {
+	flex: 1 100%;
+	padding: 1rem;
+	border-top: 1px solid var(--color-accent);
+	border-bottom: 1px solid var(--color-accent);
+}
+header {
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+}
+footer {
+	text-align: right;
+	border-radius: 0 0 5px 5px;
+}
+nav {
+	flex: 2 20%;
+	border-right: 1px solid var(--color-accent);
+}
+nav a {
+	display: inline-block;
+	width: 100%;
+	padding: 1rem;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 700;
+}
+nav a:not(:first-child) {
+	border-top: 1px solid var(--color-accent);
+}
+nav a:hover {
+	color: var(--color-background);
+	background: var(--color-accent);
+}
+#content {
+	flex: 2 80%;
+	min-height: 30rem;
+	padding: 1rem;
+}
