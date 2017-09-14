@@ -1,0 +1,8 @@
+<section class="search">
+  <input class="search-field input-text" type="text" placeholder="Search..." (keyup)="search(searchField.value)" #searchField />
+  <div class="search-list">
+    <div class="search-item" *ngFor="let item of list | async" (click)="navigateToDetail(item)">
+      {{item.name}}
+    </div>
+  </div>
+</section>
