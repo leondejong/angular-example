@@ -6,9 +6,9 @@ import { ItemService } from '../../core/item/item.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'ex-dashboard',
+  selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   public list: Array<Item> = [];
@@ -32,6 +32,6 @@ export class DashboardComponent implements OnInit {
 
   private fetchSelected(): void {
     this.itemService.list()
-      .then(list => this.list = list.slice(1, 5));
+      .then(list => this.list = list.slice(0, 6));
   }
 }

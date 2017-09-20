@@ -1,0 +1,32 @@
+@import '../../../assets/core/color';
+
+.list {
+  &__table {
+    margin-top: 0.5rem;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+  }
+
+  &__row {
+    cursor: pointer;
+
+    &:hover {
+      color: $color-tertiary;
+    }
+  }
+
+  &__cell {
+    padding-right: 1rem;
+  }
+
+  &__detail,
+  &__message {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  &__message {
+    color: $color-failure;
+    font-weight: 700;
+  }
+}

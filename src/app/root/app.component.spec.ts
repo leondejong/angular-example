@@ -34,16 +34,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'Angular Example'`, async(() => {
+  it(`should have test property`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.getTitle()).toEqual('Angular Example');
+    expect(app.test).toEqual('12');
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should render test property', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('main header h1').textContent).toContain('Angular Example');
+    expect(compiled.querySelector('.test').textContent).toContain('123');
   }));
 });

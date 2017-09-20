@@ -6,6 +6,6 @@ export class AngularExamplePage {
   }
 
   getParagraphText() {
-    return element(by.css('ex-app main header h1')).getText();
+    return element(by.css('ngx-app h1')).getText();
   }
 }

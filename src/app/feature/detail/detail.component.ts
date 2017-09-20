@@ -6,13 +6,13 @@ import { ItemService } from '../../core/item/item.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'ex-detail',
+  selector: 'ngx-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
   @Input() item: Item;
-  @Output() close: EventEmitter<Item> = new EventEmitter<Item>();
+  @Output() close: EventEmitter<Item>;
 
   private route: ActivatedRoute;
   private itemService: ItemService;
@@ -23,6 +23,7 @@ export class DetailComponent implements OnInit {
   constructor(route: ActivatedRoute, itemService: ItemService) {
     this.route = route;
     this.itemService = itemService;
+    this.close = new EventEmitter<Item>();
   }
 
   ngOnInit(): void {
@@ -35,14 +36,13 @@ export class DetailComponent implements OnInit {
       .then(item => {
         this.item = item;
         this.navigateBack(item);
-      }).catch(error => this.error = error);
+      })
+      .catch(error => this.error = error);
   }
 
   public navigateBack(item: Item = null): void {
     this.close.emit(item);
-    if (this.navigated) {
-      window.history.back();
-    }
+    if (this.navigated) window.history.back();
   }
 
   private fetchItem(): void {

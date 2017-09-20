@@ -1,0 +1,54 @@
+@import '../../../assets/core/color';
+
+.layout {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 100%;
+
+  &__header,
+  &__footer {
+    flex: 1 100%;
+    padding: 1rem;
+    color: $color-primary;
+    background: $color-secondary;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__footer {
+    text-align: right;
+  }
+
+  &__navigation {
+    flex: 2 20%;
+    border-left: 0.0625rem solid $color-secondary;
+    border-right: 0.0625rem solid $color-secondary;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+
+    &:not(:first-child) {
+      border-top: 0.0625rem solid $color-secondary;
+    }
+
+    &:hover {
+      color: $color-primary;
+      background: $color-secondary;
+    }
+  }
+
+  &__content {
+    flex: 2 80%;
+    min-height: 30rem;
+    padding: 2rem;
+  }
+}

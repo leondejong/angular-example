@@ -26,9 +26,7 @@ export class ItemService {
   }
 
   public save(item: Item): Promise<Item> {
-    if (item.id) {
-      return this.put(item);
-    }
+    if (item.id) return this.put(item);
     return this.post(item);
   }
 

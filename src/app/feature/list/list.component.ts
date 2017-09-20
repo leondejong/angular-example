@@ -6,13 +6,12 @@ import { ItemService } from '../../core/item/item.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'ex-list',
+  selector: 'ngx-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
   public list: Array<Item>;
-  public selectedItem: Item;
 
   public addingItem: boolean = false;
   public error: Error;
@@ -38,7 +37,6 @@ export class ListComponent implements OnInit {
 
   public addItem(): void {
     this.addingItem = true;
-    this.selectedItem = null;
   }
 
   public deleteItem(item: Item, event: Event): void {
@@ -47,25 +45,20 @@ export class ListComponent implements OnInit {
       .delete(item)
       .then(result => {
         this.list = this.list.filter(h => h !== item);
-        if (this.selectedItem === item) {
-          this.selectedItem = null;
-        }
-      }).catch(error => this.error = error);
+      })
+      .catch(error => this.error = error);
   }
 
   public close(item: Item): void {
     this.addingItem = false;
-    if (item) {
-      this.get();
-    }
+    if (item) this.get();
   }
 
-  public navigateToDetail(): void {
-    this.router.navigate(['/detail', this.selectedItem.id]);
+  public navigateToDetail(id: number): void {
+    this.router.navigate(['/detail', id]);
   }
 
   public onSelect(item: Item): void {
-    this.selectedItem = item;
-    this.addingItem = false;
+    this.navigateToDetail(item.id);
   }
 }

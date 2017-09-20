@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FeatureModule} from '../feature/feature.module';
-import { DashboardComponent, ListComponent, DetailComponent } from '../feature';
+import { LayoutComponent, DashboardComponent, ListComponent, DetailComponent } from '../feature';
 
 const routes: Routes = [{
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-  }, {
+  path: '',
+  redirectTo: '/dashboard',
+  pathMatch: 'full',
+}, {
+  path: '',
+  component: LayoutComponent,
+  children: [{
     path: 'dashboard',
     component: DashboardComponent
   }, {
@@ -17,8 +20,8 @@ const routes: Routes = [{
   }, {
     path: 'detail/:id',
     component: DetailComponent
-  }
-];
+  }]
+}];
 
 @NgModule({
   imports: [

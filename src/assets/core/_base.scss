@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+html {
+  @extend %font-base;
+}
+
+body {
+  color: $color-secondary;
+  background: $color-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %font-heading-base;
+  margin: 1rem 0 1rem 0;
+}
+
+// http://www.modularscale.com/ - Major Third
+
+h1 {
+  @extend %font-heading-base;
+  font-size: 3.815rem;
+}
+
+h2 {
+  font-size: 3.052rem;
+}
+
+h3 {
+  font-size: 2.441rem;
+}
+
+h4 {
+  font-size: 1.953rem;
+}
+
+h5 {
+  font-size: 1.563rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+p {
+  @extend %font-body-base;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+a {
+  &,
+  &:link,
+  &:hover,
+  &:active,
+  &:visited {
+    color: $color-secondary;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &.active {
+    text-decoration: underline;
+  }
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+}
+
+button {
+  outline: none;
+}
+
+img {
+  font-size: 0;
+}
+
+ul {
+  list-style-position: outside;
+  display: block;
+  margin: 1rem 0;
+  list-style-type: disc;
+}
+
+ol {
+  list-style-position: outside;
+  display: block;
+  margin: 1rem 0;
+  list-style-type: decimal;
+}
+
+li {
+  margin-left: 1rem;
+}

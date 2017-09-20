@@ -1,14 +1,4 @@
-<main>
-  <header>
-    <h1>{{getTitle()}}</h1>
-  </header>
-  <nav>
-    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    <a routerLink="/list" routerLinkActive="active">List</a>
-    <ex-search></ex-search>
-  </nav>
-  <section id="content">
-    <router-outlet></router-outlet>
-  </section>
-  <footer [innerHtml]="currentYear()"></footer>
-</main>
+<section class="application">
+  <div class="test">{{test}}</div>
+  <router-outlet></router-outlet>
+</section>

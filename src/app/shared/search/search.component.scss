@@ -1,0 +1,27 @@
+@import '../../../assets/core/color';
+
+.search {
+  &__field {
+    width: 100%;
+    padding: 1rem;
+    border-width: 0.0625rem 0;
+    border-radius: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 0.0625rem solid $color-secondary;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      border-bottom: 0.0625rem solid $color-secondary;
+    }
+
+    &:hover {
+      color: $color-primary;
+      background: $color-secondary;
+    }
+  }
+}

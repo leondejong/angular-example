@@ -1,0 +1,31 @@
+@import '../../../assets/core/utility';
+@import '../../../assets/core/color';
+
+.dashboard {
+  &__list {
+    width: 67%;
+    padding-top: 1rem;
+  }
+
+  &__item {
+    display: inline-block;
+    margin: 0 1rem 1rem 0;
+    padding: 1rem;
+    border: 0.0625rem solid $color-secondary;
+    border-radius: 0.3125rem;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary;
+      background: $color-secondary;
+    }
+  }
+
+  &__info {
+    @extend %ellipsis;
+    width: 4rem;
+    margin: 1rem;
+  }
+}

@@ -9,16 +9,16 @@ import { Item } from '../../core/item/item';
 
 @Component({
   moduleId: module.id,
-  selector: 'ex-search',
+  selector: 'ngx-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  styleUrls: ['./search.component.scss'],
   providers: [SearchService]
 })
 export class SearchComponent implements OnInit {
-  public list: Observable<Item[]>;
+  public list: Observable<{} | Item[]>;
 
   private router: Router;
-  private searchTerms: Subject<string> = new Subject<string>();
+  private searchTerms: Subject<string>;
   private searchService: SearchService;
 
   private debounceTime: number = 300;
@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
   constructor(router: Router, searchService: SearchService) {
     this.router = router;
     this.searchService = searchService;
+    this.searchTerms = new Subject<string>();
   }
 
   ngOnInit(): void {
@@ -47,7 +48,8 @@ export class SearchComponent implements OnInit {
       .distinctUntilChanged()
       .switchMap(
         term => this.fetchResponse(term)
-      ).catch(
+      )
+      .catch(
         error => this.handleFailure(error)
       );
   }
