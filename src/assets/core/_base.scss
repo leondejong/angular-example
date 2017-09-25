@@ -1,12 +1,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
   position: relative;
 }
 
 html {
   @extend %font-base;
+  box-sizing: border-box;
 }
 
 body {
@@ -27,7 +28,6 @@ h6 {
 // http://www.modularscale.com/ - Major Third
 
 h1 {
-  @extend %font-heading-base;
   font-size: 3.815rem;
 }
 

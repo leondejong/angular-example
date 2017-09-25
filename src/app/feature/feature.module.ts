@@ -10,8 +10,8 @@ import { DetailModule } from './detail/detail.module';
     LayoutModule,
     DashboardModule,
     ListModule,
-    DetailModule
-  ]
+    DetailModule,
+  ],
 })
 export class FeatureModule {
   constructor (@Optional() @SkipSelf() parentModule: FeatureModule) {

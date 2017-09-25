@@ -1,0 +1,18 @@
+<section class="login">
+  <ngx-dialog class="login__dialog" [id]="'login'" [title]="'Login'" [content]="'Enter login details to proceed.'"
+    [accept]="'Login'" [dismiss]="'Cancel'" (onAccept)="submit($event)">
+    <div class="login__content table">
+      <div class="login__entry table__row">
+        <label class="login__label table__cell" for="login-email">E-mail:</label>
+        <input id="login-email" class="login__input table__cell input-text"
+          type="text" placeholder="E-mail" [(ngModel)]="email" />
+      </div>
+      <div class="login__entry table__row">
+        <label class="login__label table__cell" for="login-password">Password:</label>
+        <input id="login-password" class="login__input table__cell input-text"
+          type="password" placeholder="Password" [(ngModel)]="password" />
+      </div>
+    </div>
+    <div class="login__message">{{ message }}</div>
+  </ngx-dialog>
+</section>

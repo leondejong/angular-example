@@ -7,13 +7,13 @@ import { ListComponent } from './list.component';
 @NgModule({
   imports: [
     CommonModule,
-    DetailModule
+    DetailModule,
   ],
   exports: [
-    ListComponent
+    ListComponent,
   ],
   declarations: [
-    ListComponent
-  ]
+    ListComponent,
+  ],
 })
 export class ListModule { }

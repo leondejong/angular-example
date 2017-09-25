@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Item } from '../../core/item/item';
+import { AuthGuard } from '../../core/auth/auth.guard';
 import { ItemService } from '../../core/item/item.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'ngx-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
@@ -17,10 +17,12 @@ export class ListComponent implements OnInit {
   public error: Error;
 
   private router: Router;
+  private authGuard: AuthGuard;
   private itemService: ItemService;
 
-  constructor(router: Router, itemService: ItemService) {
+  constructor(router: Router, authGuard: AuthGuard, itemService: ItemService) {
     this.router = router;
+    this.authGuard = authGuard;
     this.itemService = itemService;
   }
 
@@ -36,17 +38,19 @@ export class ListComponent implements OnInit {
   }
 
   public addItem(): void {
-    this.addingItem = true;
+    if (this.authGuard.checkAuth('/list')) this.addingItem = true;
   }
 
   public deleteItem(item: Item, event: Event): void {
     event.stopPropagation();
-    this.itemService
+    if (this.authGuard.checkAuth('/list')) {
+      this.itemService
       .delete(item)
       .then(result => {
         this.list = this.list.filter(h => h !== item);
       })
       .catch(error => this.error = error);
+    }
   }
 
   public close(item: Item): void {

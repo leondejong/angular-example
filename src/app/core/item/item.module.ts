@@ -4,7 +4,7 @@ import { ItemService } from './item.service';
 
 @NgModule({
   providers: [
-    ItemService
-  ]
+    ItemService,
+  ],
 })
 export class ItemModule { }

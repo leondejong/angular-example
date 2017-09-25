@@ -1,6 +1,8 @@
-# UpgradeProject
+# Angular Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
+Run `npm install` to install the project dependencies.
 
 ## Development server
 

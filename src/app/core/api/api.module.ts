@@ -4,7 +4,7 @@ import { ApiService } from './api.service';
 
 @NgModule({
   providers: [
-    ApiService
-  ]
+    ApiService,
+  ],
 })
 export class ApiModule { }

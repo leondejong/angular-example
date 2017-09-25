@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Item } from '../../core/item/item';
 import { ItemService } from '../../core/item/item.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'ngx-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']

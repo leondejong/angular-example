@@ -1,17 +1,18 @@
 <section class="detail" *ngIf="item">
-  <h3>{{item.name}} details</h3>
+  <h3>{{ item.name }} details</h3>
   <form class="detail__form" (ngSubmit)="save()" #detailForm="ngForm">
     <div class="detail__table table">
       <div class="detail__row table__row" *ngIf="item.id">
         <span class="detail__cell table__cell">id: </span>
-        <span class="detail__cell table__cell">{{item.id}}</span>
+        <span class="detail__cell table__cell">{{ item.id }}</span>
       </div>
       <div class="detail__row table__row">
         <span class="detail__cell table__cell">
           <label for="detail-name">name: </label>
         </span>
         <span class="detail__cell table__cell">
-          <input class="input-text" id="detail-name" type="text" name="name" [(ngModel)]="item.name" placeholder="name" />
+          <input class="input-text" id="detail-name" type="text" name="name"
+            [(ngModel)]="item.name" placeholder="name" />
         </span>
       </div>
       <div class="detail__row table__row">
@@ -19,11 +20,13 @@
           <label for="detail-period">period: </label>
         </span>
         <span class="detail__cell table__cell">
-          <input class="input-text" id="detail-period" type="text" name="period" [(ngModel)]="item.period" placeholder="period" />
+          <input class="input-text" id="detail-period" type="text" name="period"
+            [(ngModel)]="item.period" placeholder="period" />
         </span>
       </div>
     </div>
-    <button class="detail__button button" type="button" (click)="navigateBack()">Back</button>
+    <button class="detail__button button" type="button"
+      (click)="navigateBack()">Back</button>
     <button class="detail__button button" type="submit">Save</button>
   </form>
 </section>

@@ -8,7 +8,6 @@ import { SearchService } from './search.service';
 import { Item } from '../../core/item/item';
 
 @Component({
-  moduleId: module.id,
   selector: 'ngx-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],

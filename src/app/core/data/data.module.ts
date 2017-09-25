@@ -7,7 +7,7 @@ import { DataService } from './data.service';
 @NgModule({
   imports: [
     HttpModule,
-    InMemoryWebApiModule.forRoot(DataService, { delay: 500 })
-  ]
+    InMemoryWebApiModule.forRoot(DataService, { delay: 500 }),
+  ],
 })
 export class DataModule { }

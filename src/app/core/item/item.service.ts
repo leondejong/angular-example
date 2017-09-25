@@ -7,21 +7,21 @@ import { Item } from './item';
 
 @Injectable()
 export class ItemService {
-  private api: ApiService;
+  private apiService: ApiService;
 
-  constructor(api: ApiService) {
-    this.api = api;
+  constructor(apiService: ApiService) {
+    this.apiService = apiService;
   }
 
   public list(): Promise<Item[]> {
-    return this.api.getList()
-      .then(response => response.json().data as Item[])
+    return this.apiService.getList()
+      .then(response => response.json() as Item[])
       .catch(this.handleFailure);
   }
 
   public get(id: number): Promise<Item> {
-    return this.api.getItem(id)
-      .then(response => response.json().data as Item)
+    return this.apiService.getItem(id)
+      .then(response => response.json() as Item)
       .catch(this.handleFailure);
   }
 
@@ -31,19 +31,19 @@ export class ItemService {
   }
 
   public delete(item: Item): Promise<Item> {
-    return this.api.deleteItem(item)
+    return this.apiService.deleteItem(item)
       .then(() => item)
       .catch(this.handleFailure);
   }
 
   private post(item: Item): Promise<Item> {
-    return this.api.postItem(item)
-      .then(res => res.json().data)
+    return this.apiService.postItem(item)
+      .then(response => response.json())
       .catch(this.handleFailure);
   }
 
   private put(item: Item): Promise<Item> {
-    return this.api.putItem(item)
+    return this.apiService.putItem(item)
       .then(() => item)
       .catch(this.handleFailure);
   }

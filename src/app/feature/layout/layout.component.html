@@ -1,14 +1,16 @@
 <section class="layout">
     <header class="layout__header">
-      <h1>{{getTitle()}}</h1>
+      <h1>{{ getTitle() }}</h1>
     </header>
     <nav class="layout__navigation">
       <a class="layout__item" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a class="layout__item" routerLink="/list" routerLinkActive="active">List</a>
+      <div class="layout__item" *ngIf="!authenticated" (click)="login()">Login</div>
+      <div class="layout__item" *ngIf="authenticated"  (click)="logout()">Logout</div>
       <ngx-search></ngx-search>
     </nav>
     <main class="layout__content" id="content">
       <router-outlet></router-outlet>
     </main>
-    <footer class="layout__footer" [innerHtml]="currentYear()"></footer>
+    <footer class="layout__footer">{{ currentYear() }}</footer>
 </section>

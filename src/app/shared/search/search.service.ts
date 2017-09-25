@@ -16,7 +16,7 @@ export class SearchService {
 
   public search(term: string): Observable<Item[]> {
     return this.api.search(term).map(
-      (response: Response) => response.json().data as Array<Item>
+      (response: Response) => response.json() as Array<Item>
     );
   }
 }

@@ -1,0 +1,18 @@
+<section class="dialog">
+  <div class="dialog__content">
+    <header class="dialog__header">
+      <h3>{{ title }}</h3>
+    </header>
+    <div class="dialog__body">
+      <span>{{ content }}</span>
+      <ng-content></ng-content>
+    </div>
+    <footer class="dialog__footer">
+      <button class="dialog__button dialog__button--dismiss button"
+        *ngIf="dismiss" type="button" (click)="cancel()">{{ dismiss }}</button>
+      <button class="dialog__button dialog__button--accept button"
+        *ngIf="accept" type="button" (click)="submit()">{{ accept }}</button>
+    </footer>
+  </div>
+  <div class="dialog__backdrop" (click)="cancel()"></div>
+</section>

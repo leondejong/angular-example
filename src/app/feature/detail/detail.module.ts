@@ -7,13 +7,13 @@ import { DetailComponent } from './detail.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
-    DetailComponent
+    DetailComponent,
   ],
   declarations: [
-    DetailComponent
-  ]
+    DetailComponent,
+  ],
 })
 export class DetailModule { }

@@ -1,0 +1,13 @@
+@import '../../../assets/core/color';
+
+.login {
+  &__content {
+    margin: 0.5rem 0 0 -0.5rem;
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+  }
+
+  &__message {
+    color: $color-failure;
+  }
+}

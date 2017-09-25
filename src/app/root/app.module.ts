@@ -14,13 +14,13 @@ import { SharedModule} from '../shared/shared.module';
     BrowserModule,
     RoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   bootstrap: [
-    AppComponent
-  ]
+    AppComponent,
+  ],
 })
 export class AppModule { }
