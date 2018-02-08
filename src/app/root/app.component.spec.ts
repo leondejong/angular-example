@@ -1,8 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 
-import 'rxjs/Rx';
-
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing.module';
 

@@ -30,7 +30,8 @@ export class DashboardComponent implements OnInit {
   }
 
   private fetchSelected(): void {
-    this.itemService.list()
+    this.itemService
+      .list()
       .then(list => this.list = list.slice(0, 6));
   }
 }

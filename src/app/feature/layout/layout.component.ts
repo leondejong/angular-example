@@ -10,8 +10,9 @@ import { AuthService } from '../../core/auth/auth.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
+  public authenticated: boolean;
+
   private title: string = 'Angular Example';
-  private authenticated: boolean;
 
   private titleService: Title;
   private router: Router;

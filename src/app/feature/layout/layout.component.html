@@ -4,9 +4,9 @@
     </header>
     <nav class="layout__navigation">
       <a class="layout__item" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a class="layout__item" routerLink="/list" routerLinkActive="active">List</a>
+      <a class="layout__item" routerLink="/overview" routerLinkActive="active">Overview</a>
       <div class="layout__item" *ngIf="!authenticated" (click)="login()">Login</div>
-      <div class="layout__item" *ngIf="authenticated"  (click)="logout()">Logout</div>
+      <div class="layout__item" *ngIf="authenticated" (click)="logout()">Logout</div>
       <ngx-search></ngx-search>
     </nav>
     <main class="layout__content" id="content">

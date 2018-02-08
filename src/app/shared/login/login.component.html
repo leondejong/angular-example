@@ -1,6 +1,6 @@
 <section class="login">
   <ngx-dialog class="login__dialog" [id]="'login'" [title]="'Login'" [content]="'Enter login details to proceed.'"
-    [accept]="'Login'" [dismiss]="'Cancel'" (onAccept)="submit($event)">
+    [acceptText]="'Login'" [dismissText]="'Cancel'" (accept)="submit($event)">
     <div class="login__content table">
       <div class="login__entry table__row">
         <label class="login__label table__cell" for="login-email">E-mail:</label>

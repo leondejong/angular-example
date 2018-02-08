@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DetailModule } from '../detail/detail.module';
-import { ListComponent } from './list.component';
+import { OverviewComponent } from './overview.component';
 
 @NgModule({
   imports: [
@@ -10,10 +10,10 @@ import { ListComponent } from './list.component';
     DetailModule,
   ],
   exports: [
-    ListComponent,
+    OverviewComponent,
   ],
   declarations: [
-    ListComponent,
+    OverviewComponent,
   ],
 })
-export class ListModule { }
+export class OverviewModule { }

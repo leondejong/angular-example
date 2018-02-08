@@ -5,7 +5,7 @@ import { FeatureModule} from '../feature/feature.module';
 import { AuthGuard } from '../core/auth/auth.guard';
 
 import { LoginComponent } from '../shared';
-import { LayoutComponent, DashboardComponent, ListComponent, DetailComponent } from '../feature';
+import { LayoutComponent, DashboardComponent, OverviewComponent, DetailComponent } from '../feature';
 
 const routes: Routes = [{
   path: '',
@@ -22,8 +22,8 @@ const routes: Routes = [{
     path: 'dashboard',
     component: DashboardComponent
   }, {
-    path: 'list',
-    component: ListComponent
+    path: 'overview',
+    component: OverviewComponent
   }, {
     path: 'detail/:id',
     component: DetailComponent,

@@ -41,7 +41,9 @@ export class DetailComponent implements OnInit {
 
   public navigateBack(item: Item = null): void {
     this.close.emit(item);
-    if (this.navigated) window.history.back();
+    if (this.navigated) {
+      window.history.back();
+    }
   }
 
   private fetchItem(): void {
@@ -49,7 +51,8 @@ export class DetailComponent implements OnInit {
       if (params['id'] !== undefined) {
         const id: number = +params['id'];
         this.navigated = true;
-        this.itemService.get(id)
+        this.itemService
+          .get(id)
           .then(item => this.item = item);
       } else {
         this.navigated = false;

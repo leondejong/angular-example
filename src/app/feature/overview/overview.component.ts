@@ -6,11 +6,11 @@ import { AuthGuard } from '../../core/auth/auth.guard';
 import { ItemService } from '../../core/item/item.service';
 
 @Component({
-  selector: 'ngx-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: 'ngx-overview',
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.scss']
 })
-export class ListComponent implements OnInit {
+export class OverviewComponent implements OnInit {
   public list: Array<Item>;
 
   public addingItem: boolean = false;
@@ -38,24 +38,28 @@ export class ListComponent implements OnInit {
   }
 
   public addItem(): void {
-    if (this.authGuard.checkAuth('/list')) this.addingItem = true;
+    if (this.authGuard.checkAuth('/list')) {
+      this.addingItem = true;
+    }
   }
 
   public deleteItem(item: Item, event: Event): void {
     event.stopPropagation();
     if (this.authGuard.checkAuth('/list')) {
       this.itemService
-      .delete(item)
-      .then(result => {
-        this.list = this.list.filter(h => h !== item);
-      })
-      .catch(error => this.error = error);
+        .delete(item)
+        .then(result => {
+          this.list = this.list.filter(i => i !== item);
+        })
+        .catch(error => this.error = error);
     }
   }
 
   public close(item: Item): void {
     this.addingItem = false;
-    if (item) this.get();
+    if (item) {
+      this.get();
+    }
   }
 
   public navigateToDetail(id: number): void {

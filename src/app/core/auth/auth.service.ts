@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private router: Router;
+  protected router: Router;
 
-  private _target: string;
+  protected _target: string;
 
-  private email: string;
-  private password: string;
+  protected email: string;
+  protected password: string;
 
   constructor(router: Router) {
     this.router = router;

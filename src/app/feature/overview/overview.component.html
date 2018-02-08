@@ -1,0 +1,15 @@
+<section class="overview">
+  <h3>Overview</h3>
+  <div class="overview__message" *ngIf="error">{{ error }}</div>
+  <table class="overview__table table">
+    <tr class="overview__row table__row" *ngFor="let item of list" (click)="onSelect(item)">
+      <td class="overview__cell overview__cell--id table__cell">{{ item.id }}</td>
+      <td class="overview__cell overview__cell--name table__cell">{{ item.name }}</td>
+      <td class="overview__cell overview__cell--period table__cell">{{ item.period }}</td>
+      <button class="overview__button overview__button--remove button table__cell"
+        (click)="deleteItem(item, $event)">Remove</button>
+    </tr>
+  </table>
+  <button class="overview__button overview__button--add button" (click)="addItem()">Add New Item</button>
+  <ngx-detail class="overview__detail" *ngIf="addingItem" (close)="close($event)"></ngx-detail>
+</section>

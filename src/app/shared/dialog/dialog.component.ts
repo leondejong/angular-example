@@ -10,12 +10,12 @@ export class DialogComponent implements OnInit, OnDestroy {
   @Input() id: string;
   @Input() title: string;
   @Input() content: string;
-  @Input() accept: string;
-  @Input() dismiss: string;
+  @Input() acceptText: string;
+  @Input() dismissText: string;
 
-  @Output() onInitialize: EventEmitter<any>;
-  @Output() onAccept: EventEmitter<any>;
-  @Output() onDismiss: EventEmitter<any>;
+  @Output() initialize: EventEmitter<any>;
+  @Output() accept: EventEmitter<any>;
+  @Output() dismiss: EventEmitter<any>;
 
   private router: Router;
 
@@ -26,14 +26,14 @@ export class DialogComponent implements OnInit, OnDestroy {
 
     this.id = 'dialog';
 
-    this.onInitialize = new EventEmitter();
-    this.onAccept = new EventEmitter();
-    this.onDismiss = new EventEmitter();
+    this.initialize = new EventEmitter();
+    this.accept = new EventEmitter();
+    this.dismiss = new EventEmitter();
   }
 
   ngOnInit(): void {
     this.addKeyHandler();
-    this.onInitialize.emit();
+    this.initialize.emit();
   }
 
   ngOnDestroy(): void {
@@ -41,8 +41,8 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   public submit(): void {
-    if (this.onAccept.observers.length > 0) {
-      this.onAccept.emit({
+    if (this.accept.observers.length > 0) {
+      this.accept.emit({
         close: this.close.bind(this)
       });
     } else {
@@ -51,8 +51,8 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   public cancel(): void {
-    if (this.onDismiss.observers.length > 0) {
-      this.onDismiss.emit({
+    if (this.dismiss.observers.length > 0) {
+      this.dismiss.emit({
         close: this.close.bind(this)
       });
     } else {
@@ -69,10 +69,10 @@ export class DialogComponent implements OnInit, OnDestroy {
   private addKeyHandler(): void {
     this.keyHandler = (event: KeyboardEvent) => {
       switch (event.keyCode) {
-        case 13:
+        case 13: // Enter
           this.submit();
           break;
-        case 27:
+        case 27: // Escape
           this.cancel();
           break;
       }

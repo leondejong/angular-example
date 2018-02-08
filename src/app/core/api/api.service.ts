@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -10,59 +10,58 @@ export class ApiService {
   public static readonly base: string = 'app';
   public static readonly list: string = `${ApiService.base}/list`;
 
-  private http: Http;
+  protected http: HttpClient;
 
-  constructor(http: Http) {
+  constructor(http: HttpClient) {
     this.http = http;
   }
 
-  public getList(): Promise<Response> {
-    return this.http.get(ApiService.list).toPromise();
+  public getList(): Promise<Array<Item>> {
+    return this.http.get<Array<Item>>(ApiService.list).toPromise();
   }
 
-  public postItem(item: Item): Promise<Response> {
+  public postItem(item: Item): Promise<Item> {
     const url: string = `${ApiService.list}`;
-    const json: string = JSON.stringify(item);
 
-    return this.http.post(url, json, {
-      headers: this.headers()
+    return this.http.post<Item>(url, item, {
+      headers: this.headers(),
     }).toPromise();
   }
 
-  public getItem(id: number): Promise<Response> {
+  public getItem(id: number): Promise<Item> {
     const url: string = `${ApiService.list}/${id}`;
 
-    return this.http.get(url, {
-      headers: this.headers()
+    return this.http.get<Item>(url, {
+      headers: this.headers(),
     }).toPromise();
   }
 
-  public putItem(item: Item): Promise<Response> {
-    const url: string = `${ApiService.list}/${item.id}`;
-    const json: string = JSON.stringify(item);
-
-    return this.http.put(url, json, {
-      headers: this.headers()
-    }).toPromise();
-  }
-
-  public deleteItem(item: Item): Promise<Response> {
+  public putItem(item: Item): Promise<Item> {
     const url: string = `${ApiService.list}/${item.id}`;
 
-    return this.http.delete(url, {
-      headers: this.headers()
+    return this.http.put<Item>(url, item, {
+      headers: this.headers(),
     }).toPromise();
   }
 
-  public search(term: string): Observable<Response> {
+  public deleteItem(item: Item): Promise<Item> {
+    const url: string = `${ApiService.list}/${item.id}`;
+
+    return this.http.delete<Item>(url, {
+      headers: this.headers(),
+    }).toPromise();
+  }
+
+  public search(term: string): Observable<Array<Item>> {
     const url: string = `${ApiService.list}?name=${term}`;
 
-    return this.http.get(url);
+    return this.http.get<Array<Item>>(url);
   }
 
-  private headers(): Headers {
-    const headers: Headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+  protected headers(): HttpHeaders {
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
     return headers;
   }

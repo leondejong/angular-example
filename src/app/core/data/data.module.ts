@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './data.service';
 
 @NgModule({
   imports: [
-    HttpModule,
+    HttpClientModule,
     InMemoryWebApiModule.forRoot(DataService, { delay: 500 }),
   ],
 })
