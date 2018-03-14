@@ -7,7 +7,7 @@ export class DataService implements InMemoryDbService {
       { id: 2, name: 'Einstein', period: '1879-1955' },
       { id: 3, name: 'Maxwell', period: '1831-1879' },
       { id: 4, name: 'Planck', period: '1858-1947' },
-      { id: 5, name: 'Hawking', period: '1942' },
+      { id: 5, name: 'Hawking', period: '1942-2018' },
       { id: 6, name: 'Feynman', period: '1918-1988' },
       { id: 7, name: 'Bohr', period: '1885-1962' },
       { id: 8, name: 'Heisenberg', period: '1901-1976' },
